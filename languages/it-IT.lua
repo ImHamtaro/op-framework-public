@@ -242,6 +242,7 @@ OP.Global.Locales.Languages["it-IT"] = {
 		banner_name_generic = "un membro del personale",
 
 		ban_alert_title = "Bannato dal Sistema",
+		ban_alert_description_banner = "Sei stato automaticamente bannato da ${banner} per il seguente motivo `${reason}`.",
 		ban_alert_description = "sei stato automaticamente bannato dal sistema per un motivo `${reason}`.",
 
 		logs_player_banned_title = "Bannato globalmente dal sistema",
@@ -296,6 +297,13 @@ OP.Global.Locales.Languages["it-IT"] = {
 		reflection_logs_title = "Specchio riflesso attivato",
 		reflection_logs_enabled_details = "${consoleName} ha attivato specchio riflesso.",
 		reflection_logs_disabled_details = "${consoleName} ha disattivato specchio riflesso.",
+
+		headache_logs_title = "Mal di testa innescato",
+		headache_logs_details = "${consoleName} ha provocato mal di testa a ${targetConsoleName}.",
+		trigger_headache_no_permissions = "Ha cercato di provocare un mal di testa senza i permessi richiesti.",
+
+		success_trigger_headache = "Mal di testa attivato da ${playerName}.",
+		failed_trigger_headache = "Non si è riusciti ad attivare il mal di testa.",
 
 		protective_mode_not_staff = "Tentativo di attivare o disattivare la modalità di protezione del server senza le autorizzazioni appropriate.",
 		protective_mode_toggled_on = "La modalità di protezione del server è stata ora abilitata. È stata impostata la quantità di tempo di riproduzione richiesta per connettersi al server `${playtime}`.",
@@ -1076,6 +1084,12 @@ OP.Global.Locales.Languages["it-IT"] = {
 		reflect_damage_command_help = "Attiva/disattiva specchio riflesso. (Non credo ci sia bisogna di una traduzione)",
 		reflect_damage_command_substitutes = "reflect",
 
+		trigger_headache_command = "trigger_headache",
+		trigger_headache_command_help = "Causa il lag di un determinato player per un breve periodo.",
+		trigger_headache_command_parameter_server_id = "ID",
+		trigger_headache_command_parameter_server_id_help = "L'ID del giocatore al quale vuoi attivare il mal di testa.",
+		trigger_headache_command_substitutes = "headache",
+
 		stick_command = "stick",
 		stick_command_help = "Ti fa restare attaccato al tetto di un veicolo (carsurf).",
 		stick_command_substitutes = "",
@@ -1565,6 +1579,11 @@ OP.Global.Locales.Languages["it-IT"] = {
 		play_audio_command_parameter_server_id_help = "L'ID del giocatore per cui vuoi riprodurre questo audio. Puoi fare `-1` per tutti i giocatori.",
 		play_audio_command_substitutes = "",
 
+		-- game/bandaids
+		random_bandaid_command = "random_bandaid",
+		random_bandaid_command_help = "Ti fornisce un cerotto casuale. :)",
+		random_bandaid_command_substitutes = "bandaid",
+
 		-- game/battle_royale
 		battle_royale_toggle_command = "battle_royale_toggle",
 		battle_royale_toggle_command_help = "Attiva/disattiva la funzione Battle Royale.",
@@ -2041,6 +2060,10 @@ OP.Global.Locales.Languages["it-IT"] = {
 		rectangle_command = "rectangle",
 		rectangle_command_help = "Crea un rettangolo in uno spazio 3D.",
 		rectangle_command_substitutes = "rect",
+
+		define_area_command = "define_area",
+		define_area_command_help = "Definisce un'area.",
+		define_area_command_substitutes = "area",
 
 		-- game/debug_menu
 		debug_menu_command = "debug_menu",
@@ -3524,10 +3547,6 @@ OP.Global.Locales.Languages["it-IT"] = {
 		mileage_command_help = "Controlla il chilometraggio di un veicolo.",
 		mileage_command_substitutes = "",
 
-		drag_out_command = "drag_out",
-		drag_out_command_help = "Trascina il giocatore morto più vicino fuori dal veicolo in cui si trova.",
-		drag_out_command_substitutes = "",
-
 		toggle_disabled_brakes_command = "toggle_disabled_brakes",
 		toggle_disabled_brakes_command_help = "Disabilita o abilita i freni del veicolo più vicino.",
 		toggle_disabled_brakes_command_substitutes = "disable_brakes",
@@ -4190,8 +4209,11 @@ OP.Global.Locales.Languages["it-IT"] = {
 		spiderman = "Spiderman",
 		star_wars = "Star-Wars",
 
+		failed_random_bandaid = "Non hai ottenuto nessun cerotto.",
+
 		received_bandaid_logs_title = "Cerotto ricevuto",
-		received_bandaid_logs_details = "${consoleName} ricevuto 1x ${bandaid} dopo un trasporto aereo."
+		received_bandaid_logs_details = "${consoleName} ricevuto 1x ${bandaid} dopo un trasporto aereo.",
+		spawned_bandaid_logs_details = "${consoleName} ha dato a se stesso 1x ${bandaid}."
 	},
 
 	battle_royale = {
@@ -5797,7 +5819,22 @@ OP.Global.Locales.Languages["it-IT"] = {
 		next_rotation_in = "Prossima rotazione in: ${time}",
 
 		exclusive_dealership_blip = "Exclusive Deluxe Motorsport",
+		exclusive_buyback_blip = "Prestige Wheels Exchange",
+	
+		buyback_vehicle_help = "Premi ~INPUT_CONTEXT~ per entrare nel Prestige Wheels Exchange.",
+		buyback_title = "Prestige Wheels Exchange",
+		sell_closest_vehicle = "Vendi la tua ${label} per $${price} (${percent}% del suo valore)?",
+		deny_sale = "Fa nulla, ci ho ripensato, la voglio tenere",
+		accept_sale = "Sì, sono sicuro",
+		accept_sale_description = "Sei sicuro di voler vendere il tuo veicolo per $${price}? Questa azione non può essere annullata.",
+		are_you_sure_sell = "Sei sicuro di volerla vendere?",
+		no_vehicle_to_sell = "Nessun veicolo vendibile nei dintorni.",
+		vehicle_not_owned = "Non possiedi questo veicolo.",
+		sale_success = "Venduto `${label}` per $${price}.",
 
+		sale_log_title = "EDM vendita usato",
+		sale_log_description = "${consoleName} venduto il loro `${label}` per $${price}.",
+		
 		log_title = "Compravendita EDM",
 		log_description = "Comprato `${label}` per $${price}."
 	},
@@ -6263,6 +6300,8 @@ OP.Global.Locales.Languages["it-IT"] = {
 		state_security_badge_details = "State Security Department | ${firstName} ${lastName}",
 		doj_badge = "DOJ ID",
 		doj_badge_details = "DOJ | ${firstName} ${lastName} | Posizione: ${positionName}",
+		doc_badge = "ID DOC",
+		doc_badge_details = "DOC | ${firstName} ${lastName} | Posizione: ${positionName}",
 
 		badge_type_sasp = "Polizia di stato di San Andread",
 		badge_type_bcso = "Ufficio dello Sceriffato di Blaine County",
@@ -6276,6 +6315,7 @@ OP.Global.Locales.Languages["it-IT"] = {
 		badge_type_bcfd = "Vigili del fuoco della contea di Blaine",
 		badge_type_state_security = "Dipartimento per la sicurezza dello Statot",
 		badge_type_doj = "Dipartimento di giustizia",
+		badge_type_doc = "Dipartimento delle correzioni",
 
 		badge_type_short_sasp = "SASP",
 		badge_type_short_bcso = "BCSO",
@@ -6287,7 +6327,8 @@ OP.Global.Locales.Languages["it-IT"] = {
 		badge_type_short_ems = "EMS",
 		badge_type_short_doctor = "Doctor",
 		badge_type_short_bcfd = "BCFD",
-		badge_type_short_state_security = "SSD"
+		badge_type_short_state_security = "SSD",
+		badge_type_short_doc = "DOC"
 	},
 
 	import_export = {
@@ -6416,7 +6457,8 @@ OP.Global.Locales.Languages["it-IT"] = {
 		strip_club = "Strip Club",
 		police_store = "Negozio della polizia",
 		fib_store = "Negozio del FIB",
-		police_badge_store = "Badge desk della polizia",
+		police_badge_store = "Banco distintivi della polizia",
+		doc_badge_store = "Banco distintivi DOC",
 		flower_store = "Emporio Stacey's Flower",
 		gift_store = "Del Perro Gifts",
 		ems_store = "EMS Store",
@@ -6624,9 +6666,11 @@ OP.Global.Locales.Languages["it-IT"] = {
 		state_security_badge_description = "Un ID per gli agenti della Sicurezza di Stato.",
 		doj_badge = "Distintivo DOJ",
 		doj_badge_description = "Un distintivo per i dipendenti del Dipartimento di Giustizia.",
+		doc_badge = "DOC ID",
+		doc_badge_description = "Un distintivo per i dipendenti del dipartimento di correzioni.",
 
 		radio_chop_shop = "Chop Shop Radio",
-		radio_chop_shop_description = "Utilizzato per ricevere Intel su veicoli 'caldi' dalle persone inesistenti che gestiscono il Chop Shop.",
+		radio_chop_shop_description = "Utilizzato per ricevere informazioni su veicoli 'caldi' dalle persone inesistenti che gestiscono il Chop Shop.",
 
 		binoculars = "Binocolo",
 		binoculars_description = "Un gadget indispensabile per ogni brivido in agguato a Los Santos!",
